@@ -319,6 +319,12 @@ void MainApplication::messageReceivedCallback(GotifyModel::Message * message)
 {
     addMessageToModel(message);
 
+    // If it's low priority, check whether the icon can be changed and do not show a notification
+    if (message->priority < settings->notificationPriority() && settings->traySmallPriority()) {
+        tray->setUnread();
+        return;
+    }
+
     // Don't show a notification if it's low priority or the window is active
     if (message->priority < settings->notificationPriority() || mainWindow->isActiveWindow()) {
         return;

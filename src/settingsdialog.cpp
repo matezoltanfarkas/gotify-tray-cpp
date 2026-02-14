@@ -348,6 +348,7 @@ void SettingsDialog::readSettings()
     ui->cb_notify->setChecked(settings->notifyMissed());
     ui->cb_notification_click->setChecked(settings->notificationClick());
     ui->cb_tray_icon_unread->setChecked(settings->trayUnreadEnabled());
+    ui->cb_tray_icon_small_prio->setChecked(settings->traySmallPriority());
     ui->cb_priority_colors->setChecked(settings->priorityColor());
     ui->cb_locale->setChecked(settings->useLocale());
     ui->cb_sort_applications->setChecked(settings->sortApplications());

@@ -341,6 +341,16 @@ bool Settings::trayUnreadEnabled()
     return value("trayUnread", false).toBool();
 }
 
+//------------------------------------------------------------------------------
+void Settings::setTraySmallPriority(bool mode)
+{
+    setValue("traySmallPriority", mode);
+}
+
+bool Settings::traySmallPriority()
+{
+    return value("traySmallPriority", false).toBool();
+}
 
 //------------------------------------------------------------------------------
 void Settings::setPopupEnabled(bool mode)
