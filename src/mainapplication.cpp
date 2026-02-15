@@ -319,13 +319,21 @@ void MainApplication::messageReceivedCallback(GotifyModel::Message * message)
 {
     addMessageToModel(message);
 
-    // Don't show a notification if it's low priority or the window is active
-    if (message->priority < settings->notificationPriority() || mainWindow->isActiveWindow()) {
+    // If the window is active, don't show a notification and don't change the tray icon
+    if (mainWindow->isActiveWindow()) {
         return;
     }
 
-    // Change the tray icon to show there are unread notifications
-    if (settings->trayUnreadEnabled() && !mainWindow->isActiveWindow()) {
+    // If the message is low priority, only change the tray icon (if enabled) and don't show a notification
+    if (message->priority < settings->notificationPriority()) {
+        if (settings->traySmallPriority()) {
+            tray->setUnread();
+        }
+        return;
+    }
+
+    // If the message is high priority, change the tray icon (if enabled) and show a notification
+    if (settings->trayUnreadEnabled()) {
         tray->setUnread();
     }
 

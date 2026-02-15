@@ -99,6 +99,9 @@ public:
     void setTrayUnreadEnabled(bool mode);
     bool trayUnreadEnabled();
 
+    void setTraySmallPriority(bool mode);
+    bool traySmallPriority();
+
     void setPopupEnabled(bool mode);
     bool popupEnabled();
 
