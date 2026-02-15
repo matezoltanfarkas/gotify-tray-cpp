@@ -396,6 +396,7 @@ void SettingsDialog::saveSettings()
     settings->setNotifyMissed(ui->cb_notify->isChecked());
     settings->setNotificationClick(ui->cb_notification_click->isChecked());
     settings->setTrayUnreadEnabled(ui->cb_tray_icon_unread->isChecked());
+    settings->setTraySmallPriority(ui->cb_tray_icon_small_prio->isChecked());
     settings->setUseLocale(ui->cb_locale->isChecked());
     settings->setSortApplications(ui->cb_sort_applications->isChecked());
     settings->setShowImageUrl(ui->cb_image_urls->isChecked());
